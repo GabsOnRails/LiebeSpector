@@ -1,0 +1,2 @@
+para startar o uvicorn, precisa estar na pasta com o arquivo .main: uvicorn main:app --reload
+para statar o streamlit: streamlit run {nome do arquivo}
