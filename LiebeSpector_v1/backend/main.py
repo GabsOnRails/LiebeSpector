@@ -12,7 +12,7 @@ from pydantic import BaseModel
 from call_agent import call_agent
 
 # --- Configurações Iniciais ---
-load_dotenv(dotenv_path='C:/Users/conta/OneDrive/Documents/GitHub/LiebeSpector_alura/LiebeSpector/backend/config/.env')
+load_dotenv(dotenv_path='C:/Users/conta/OneDrive/Documents/GitHub/LiebeSpector/LiebeSpector_v1/backend/config/.env')
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 
