@@ -10,46 +10,12 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <style>
-      /* Define a altura total da tela para o corpo */
-      body {
-        min-height: 100vh;
-        display: flex; /* Transforma o corpo em um flex container */
-        flex-direction: column; /* Organiza os filhos em coluna: header, main, footer */
-        font-size: 1.8rem; /* Fonte base maior para o corpo (20px) */
-      }
-
-      /* Centraliza o conteúdo principal e garante que ele ocupe o espaço restante */
-      #principal {
-        flex-grow: 1; /* Faz com que esta div ocupe todo o espaço disponível */
-        display: flex;
-        justify-content: center; /* Centraliza horizontalmente */
-        align-items: center; /* Centraliza verticalmente */
-        padding: 20px 0; /* Espaçamento vertical */
-      }
-
-      /* Limita a largura do container de input para melhor visualização */
-      #caixaInput {
-        max-width: 500px;
-      }
-
-      /* NOVO: Garante que os inputs e textareas tenham o tamanho de fonte adequado */
-      .form-control {
-        /* Usamos 'inherit' para herdar a fonte maior do <body> ou um tamanho fixo se preferir */
-        font-size: inherit;
-      }
-
-      /* Ajuste específico para os inputs 'grandes' */
-      .form-control-lg {
-        /* Define um tamanho de fonte claro para inputs grandes, pode ser 1.25rem (20px) ou maior */
-        font-size: 1.8rem;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="bg-primary text-white p-3 mb-4">
+    <header class="titulo text-white p-3 mb-4">
       <div class="container text-center">
-        <h2 class="mb-0">LiebeSpector</h2>
+        <h2 class="texto mb-0">LiebeSpector</h2>
       </div>
     </header>
 
@@ -77,7 +43,11 @@
         ></textarea>
       </div>
 
-      <button type="submit" class="btn btn-success btn-lg w-100" id="submitBtn">
+      <button
+        type="submit"
+        class="btn btn-personalizado btn-lg w-100"
+        id="submitBtn"
+      >
         Gerar Roteiro
       </button>
 
@@ -95,7 +65,7 @@
       class="p-3 bg-white border rounded mt-4"
       style="display: none"
     >
-      <h4 class="mb-2 text-success">Roteiro Sugerido:</h4>
+      <h4 class="texto-roteiro mb-2">Roteiro Sugerido:</h4>
       <pre
         id="roteiroContent"
         class="p-2 bg-light rounded"

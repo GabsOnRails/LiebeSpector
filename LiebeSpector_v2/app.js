@@ -50,7 +50,7 @@ async function generateRoteiro(livro, partes) {
         Sua tarefa é gerar um roteiro de vídeo curto (Reel/TikTok) baseado na leitura de um livro.
 
         Regras:
-        1. O roteiro deve ter GATILHO (0-3s), DESENVOLVIMENTO (3-8s) e CHAMADA PARA AÇÃO (8-15s).
+        1. O roteiro deve ter GATILHO (0-3s), DESENVOLVIMENTO (3-45s) e CHAMADA PARA AÇÃO (45-60s).
         2. O foco principal deve ser conectar as partes favoritas do usuário com a vida real.
         3. Formate a saída como um markdown limpo e fácil de ler, usando **títulos**.
 
@@ -90,11 +90,14 @@ async function generateRoteiro(livro, partes) {
 function showLoading(isLoading) {
   if (isLoading) {
     submitBtn.disabled = true;
-    submitBtn.textContent = "Gerando...";
+    submitBtn.innerHTML = `
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Gerando...
+    `;
     statusMessage.style.display = "block";
   } else {
     submitBtn.disabled = false;
-    submitBtn.textContent = "Gerar Roteiro!";
+    submitBtn.innerHTML = "Gerar Roteiro!";
     statusMessage.style.display = "none";
   }
 }

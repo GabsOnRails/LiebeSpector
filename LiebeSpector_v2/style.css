@@ -1,0 +1,75 @@
+/* Estilizando o app
+      /* Define a altura total da tela para o corpo */
+body {
+  min-height: 100vh;
+  display: flex; /* Transforma o corpo em um flex container */
+  flex-direction: column; /* Organiza os filhos em coluna: header, main, footer */
+  font-size: 1.8rem; /* Fonte base maior para o corpo (20px) */
+}
+
+/* Centraliza o conteúdo principal e garante que ele ocupe o espaço restante */
+#principal {
+  flex-grow: 1; /* Faz com que esta div ocupe todo o espaço disponível */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 20px 0; /* Espaçamento vertical */
+}
+
+/* Limita a largura do container de input para melhor visualização */
+#caixaInput {
+  max-width: 500px;
+}
+
+/* Garante que os inputs e textareas tenham o tamanho de fonte adequado */
+.form-control {
+  /* Usamos 'inherit' para herdar a fonte maior do <body> ou um tamanho fixo se preferir */
+  font-size: inherit;
+}
+
+/* Ajuste específico para os inputs 'grandes' */
+.form-control-lg {
+  /* Define um tamanho de fonte claro para inputs grandes, pode ser 1.25rem (20px) ou maior */
+  font-size: 1.8rem;
+}
+
+/* Ajuste para o título da página */
+.titulo {
+  background-color: #001615;
+}
+.texto {
+  color: #ffc745;
+}
+
+.texto-roteiro {
+  color: #001615;
+}
+
+/* Ajuste para botão de gerar roteiro */
+.btn-personalizado {
+  background-color: #001615;
+  color: #ffc745;
+  border: none;
+}
+.btn-personalizado {
+  background-color: #001615;
+  color: #ffc745;
+  border: none;
+  font-size: 1.2rem;
+  transition: all 0.25s ease;
+}
+
+/* Hoover no botão*/
+.btn-personalizado:hover {
+  font-size: 1.25rem;
+  transform: scale(1.05); /* leve zoom */
+  background-color: #003330;
+  color: #ffd85e;
+}
+/* Aumentando a prioridade do estilo definido para o bootstrap não sobrescrever */
+.btn-personalizado:disabled {
+  background-color: #001615 !important;
+  color: #ffc745 !important;
+  opacity: 0.8;
+  cursor: not-allowed;
+}
