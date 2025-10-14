@@ -9,11 +9,13 @@ const submitBtn = document.getElementById("submitBtn");
 const statusMessage = document.getElementById("statusMessage");
 const roteiroOutput = document.getElementById("roteiroOutput");
 const roteiroContent = document.getElementById("roteiroContent");
+const downloadBtn = document.getElementById("downloadBtn");
+let pdfBlob = null; // armazenará o PDF gerado
 
 // --------------------------------------------------------
 // CONFIGURAÇÃO DA API
 // --------------------------------------------------------
-const API_KEY = "";
+const API_KEY = "AIzaSyAt9dHfV4l5SHJNHVZj8XrNqsnb-_Jx8W8";
 
 // Inicializa a instância do Google Gen AI
 // A classe GoogleGenAI agora é garantida por ter sido importada no topo
@@ -72,6 +74,8 @@ async function generateRoteiro(livro, partes) {
     // 4. Inserir e exibir o roteiro na tela
     roteiroContent.textContent = roteiroGerado;
     roteiroOutput.style.display = "block";
+    // 🔹 Gera o PDF e exibe o botão de download
+    gerarPDF(roteiroGerado);
   } catch (error) {
     // Lidar com erros da API
     console.error("Erro ao gerar o roteiro com a Gemini API:", error);
@@ -100,4 +104,29 @@ function showLoading(isLoading) {
     submitBtn.innerHTML = "Gerar Roteiro!";
     statusMessage.style.display = "none";
   }
+}
+
+// ------------------- FUNÇÃO PARA GERAR PDF -------------------
+function gerarPDF(roteiroGerado) {
+  if (!roteiroGerado) return;
+
+  const doc = new window.jspdf.jsPDF();
+  doc.setFontSize(14);
+  doc.text(roteiroGerado, 10, 20);
+
+  pdfBlob = doc.output("blob");
+
+  if (downloadBtn) downloadBtn.style.display = "inline-block";
+}
+
+// ------------------- EVENTO DE CLICK NO DOWNLOAD -------------------
+if (downloadBtn) {
+  downloadBtn.onclick = () => {
+    if (!pdfBlob) return;
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(pdfBlob);
+    link.download = "roteiro.pdf";
+    link.click();
+    URL.revokeObjectURL(link.href);
+  };
 }
